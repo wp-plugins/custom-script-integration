@@ -4,7 +4,7 @@ Donate link: http://www.wpwox.com/make-a-donation/
 Tags: google adwords conversion, custom style, custom css, google tracking, google ads, script integration, embed, plugin, wpwox, google adwords, google adsense
 Requires at least: 3
 Tested up to: 4.1.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ You will get a meta box under each of page and post. The Meta box will have 4 Te
 3. Scripts to add in <head> tag
 4. Scripts to add in footer below </body> tag
 
+Plugin Documentation:
+http://www.wpwox.com/wp-plugin/custom-script-integration/
+
 
 
 
@@ -49,11 +52,11 @@ Go to edit of any post or page, below the Content area should appear a 'Custom S
 = Can I use css in the meta boxes? =
 
 Yes, you can use css to specific pages or posts. Please make sure you have your intitial tags and closing tags properly marked, for example:
-<style>
+&lt;style&lt;
 .wrapper { 
 ....
 }
-</style>
+&lt;/style&lt;
 
 = Does it support custom post types? =
 

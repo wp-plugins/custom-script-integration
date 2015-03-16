@@ -3,7 +3,7 @@
 Plugin Name: Custom Script Integration
 Plugin URI: http://www.wpwox.com
 Description: Provides custom meta boxes to add Google Adwords conversion, tracking, ads etc scripts in individual pages or posts in <head> tag, before </body> tag, above or below contents.
-Version: 1
+Version: 1.1
 Author: WP WOX
 Author URI: http://www.wpwox.com
 
@@ -23,7 +23,8 @@ define( 'WPWOXCUSTOMSCRIPTINTEGRATION__PLUGIN_DIR', plugin_dir_path( __FILE__ ) 
 
 //**Hook the_content to output the scripts added to the page or post.
 
-add_filter('the_content', 'wpwoxcustomscript_display_hook');
+  
+add_filter('the_content', 'wpwoxcustomscript_display_hook',  10);
 
 add_action('wp_head', 'wpwoxcustomscript_display_hook_header');
 add_action('wp_footer', 'wpwoxcustomscript_display_hook_footer');
@@ -50,12 +51,13 @@ return;
 
 function wpwoxcustomscript_display_hook($content='') {
 	global $post;
+  $contents=$content;
     if(is_single() || is_page()) {
    $contents= html_entity_decode(get_post_meta($post->ID, '_wpwoxcustomscriptcontenttop', true)) . $content . html_entity_decode(get_post_meta($post->ID, '_wpwoxcustomscriptcontentbottom', true));
      }
    
 return $contents;
-}
+} 
 
 
 
@@ -74,7 +76,7 @@ function wpwoxcustomscript_metaboxs($post) {
   <textarea style="width:100%; min-height: 50px;" id="wpwoxcustomscriptcontentinhead" name="wpwoxcustomscriptcontentinhead" /><?php echo html_entity_decode(get_post_meta($post->ID,'_wpwoxcustomscriptcontentinhead',true)); ?></textarea><br />
   <label for="wpwoxcustomscriptcontentinfooter"><?php _e('Scripts to be inserted at the bottom <strong>before &lt;/body&gt;</strong>','wpwoxcustomscript') ?></label><br />
   <textarea style="width:100%; min-height: 50px;" id="wpwoxcustomscriptcontentinfooter" name="wpwoxcustomscriptcontentinfooter" /><?php echo html_entity_decode(get_post_meta($post->ID,'_wpwoxcustomscriptcontentinfooter',true)); ?></textarea>
-
+<p style="color:blue; text-align:right; font-weight: bold;">Get a <a href="http://www.wpwox.com/custom-script-integration-pro/" style="color:#ff0000" target="_blank">Pro Custom Script Integration Plugin</a> for more options and Custom Post Type support</p>
   	<?php
 }
 
